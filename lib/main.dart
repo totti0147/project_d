@@ -11,6 +11,7 @@ import 'package:project_d/page_c.dart';
 import 'package:project_d/page_d.dart';
 import 'package:project_d/dropdown.dart';
 import 'package:project_d/appbar.dart';
+import 'package:project_d/createModel.dart';
 
 void main() {
   const scope = ProviderScope(child: MyApp());
@@ -43,10 +44,10 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int selectedIndex = 0;
   final pages = [
-    PageA(),
+    TextPostScreen(),
     PageB(),
-    PageC(),
-    PageD(),
+    Test(),
+    PostList(),
   ];
 
   @override

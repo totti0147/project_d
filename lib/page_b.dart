@@ -2,6 +2,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:project_d/dropdown.dart';
 
+class Model {
+  String eng;
+  String jpn;
+
+  Model({this.eng = "",this.jpn = ""});
+}
+
 class PageB extends ConsumerWidget {
   const PageB({super.key});
 
@@ -15,10 +22,10 @@ class PageB extends ConsumerWidget {
               child: Container(
                 margin: EdgeInsets.fromLTRB(10, 0, 100, 0),
                 child: Text('Vocab list',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                ),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),
@@ -35,13 +42,6 @@ class PageB extends ConsumerWidget {
       ],
     );
   }
-}
-
-class Model {
-  String eng;
-  String jpn;
-
-  Model({this.eng = "",this.jpn = ""});
 }
 
 class NotifierForB extends ChangeNotifier {
@@ -73,39 +73,43 @@ class ListForB extends ConsumerWidget{
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final myModel = ref.watch(NotifierForBProvider).model;
-    return Stack(
-      children: <Widget>[
-        Container(
-          margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-          height: 140,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(
-                width: 2,
-                color: Colors.black
+    return Column(
+      children: [
+        Stack(
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+              height: 140,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  width: 2,
+                  color: Colors.black
+                ),
+              ),
+              child: Align(
+                alignment: Alignment(-0.98, -0.89),
+                child: Icon(Icons.star,color: Colors.grey),
+              ),
             ),
-          ),
-          child: Align(
-            alignment: Alignment(-0.98, -0.89),
-            child: Icon(Icons.star,color: Colors.grey),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.fromLTRB(44, 6, 6, 100),
-          child: Text(myModel.eng,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.indigo,
+            Container(
+              margin: EdgeInsets.fromLTRB(44, 6, 6, 100),
+              child: Text(myModel.eng,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.indigo,
+                ),
+              ),
             ),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.fromLTRB(44, 54, 6, 40),
-          child: Text(myModel.jpn,
-            style: TextStyle(
-              fontSize: 16,
+            Container(
+              margin: EdgeInsets.fromLTRB(44, 54, 6, 40),
+              child: Text(myModel.jpn,
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ],
     );
