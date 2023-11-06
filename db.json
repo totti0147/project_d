@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "number": 1,
+      "title": "I know that the majority of Russia doesn't want this current invasion of Ukraine, but now I hate Russia",
+      "author": "今回のウクライナ侵攻でロシアの大多数の人たちはそれを望んでいないことが分かったけどロシアという国が嫌いになった。"
+    },
+    {
+      "number": 2,
+      "title": "It's available in various colors.",
+      "author": "様々なカラー展開があります。"
+    },
+    {
+      "number": 3,
+      "title": "I wish I had bought it earlier.",
+      "author": "もっと早く買えばよかった。"
+    },
+    {
+      "number": 4,
+      "title": "Even if something really great happens, let’s be careful not to get overexcited.",
+      "author": "めちゃくちゃ嬉しいことがあったとしても、調子に乗らないように気を付けましょう。"
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
