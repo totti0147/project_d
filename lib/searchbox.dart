@@ -8,30 +8,46 @@ import 'package:project_d/page_a.dart';
 import 'package:project_d/appbar.dart';
 import 'package:project_d/page_d.dart';
 
-final filteredItemsProvider = Provider.autoDispose.family<List<Post>, String>((ref, query) {
-  final postsData = ref.watch(postsProvider);
+class SearchNotifier extends StateNotifier<String> {
+  SearchNotifier() : super('');
 
-  if (postsData is AsyncData<List<Post>>) {
-    final posts = postsData.value;
+  void updateSearch(String newSearch) {
+    state = newSearch;
+  }
+}
 
-    if (query.isEmpty) {
+final searchProvider = StateNotifierProvider<SearchNotifier, String>((ref) {
+  return SearchNotifier();
+});
+
+final filteredItemsProvider = FutureProvider.family<List<Post>, String>((ref, search) async {
+  final response = await http.get(Uri.parse('http://192.168.1.124:3000/posts'),
+    headers: {'Accept-Charset': 'utf-8'},
+  );
+  print('Status Code: ${response.statusCode}');
+  print('Body: ${response.body}');
+
+  if (response.statusCode == 200) {
+    final List<dynamic> data = json.decode(response.body);
+    final List<Post> posts = data.map((item) => Post.fromJson(item)).toList();
+
+    if (search.isEmpty) {
       return posts;
-    } else {
-      return posts.where((item) => item.title.contains(query)).toList();
     }
+
+    return posts.where((post) => post.title.toLowerCase().contains(search.toLowerCase())).toList();
   } else {
-    return <Post>[]; // ローディング中やエラー時は空のリストを返す
+    throw Exception('Failed to load posts');
   }
 });
 
 class SearchBox extends ConsumerWidget {
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final searchNotifier = ref.watch(searchProvider.notifier);
     return TextField(
-      onChanged: (query) {
-        // フィルタリング用のProviderを更新
-        ref.read(filteredItemsProvider(query));
-      },
+      onChanged: (value) => searchNotifier.updateSearch(value),
       decoration: InputDecoration(
         fillColor: Colors.white,
         filled: true,
@@ -42,23 +58,7 @@ class SearchBox extends ConsumerWidget {
   }
 }
 
-class ItemList extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final filteredItems = ref.watch(filteredItemsProvider(''));
 
-    return ListView.builder(
-      itemCount: filteredItems.length,
-      itemBuilder: (context, index) {
-        final item = filteredItems[index];
-        return ListTile(
-          title: Text(item.title),
-          subtitle: Text(item.author),
-        );
-      },
-    );
-  }
-}
 
 
 

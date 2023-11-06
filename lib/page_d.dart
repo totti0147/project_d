@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:project_d/searchbox.dart';
 
 
 final postsProvider = FutureProvider<List<Post>>((ref) async {
@@ -15,38 +16,7 @@ final postsProvider = FutureProvider<List<Post>>((ref) async {
   }
 });
 
-class SearchNotifier extends StateNotifier<String> {
-  SearchNotifier() : super('');
 
-  void updateSearch(String newSearch) {
-    state = newSearch;
-  }
-}
-
-final searchProvider = StateNotifierProvider<SearchNotifier, String>((ref) {
-  return SearchNotifier();
-});
-
-final filteredItemsProvider = FutureProvider.family<List<Post>, String>((ref, search) async {
-  final response = await http.get(Uri.parse('http://192.168.1.124:3000/posts'),
-    headers: {'Accept-Charset': 'utf-8'},
-  );
-  print('Status Code: ${response.statusCode}');
-  print('Body: ${response.body}');
-
-  if (response.statusCode == 200) {
-    final List<dynamic> data = json.decode(response.body);
-    final List<Post> posts = data.map((item) => Post.fromJson(item)).toList();
-
-    if (search.isEmpty) {
-      return posts;
-    }
-
-    return posts.where((post) => post.title.toLowerCase().contains(search.toLowerCase())).toList();
-  } else {
-    throw Exception('Failed to load posts');
-  }
-});
 
 class Post {
   final int number;
@@ -74,7 +44,6 @@ class PostList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final search = ref.watch(searchProvider);
-    final searchNotifier = ref.watch(searchProvider.notifier);
     final filteredItemsAsyncValue = ref.watch(filteredItemsProvider(search));
 
     return Column(
