@@ -13,6 +13,9 @@ import 'package:project_d/dropdown.dart';
 import 'package:project_d/appbar.dart';
 import 'package:project_d/createModel.dart';
 
+final selectedDropdownItemProvider = StateProvider<String>((ref) => 'All');
+final selectedDropdownItemForAProvider = StateProvider<String>((ref) => 'All');
+
 void main() {
   const scope = ProviderScope(child: MyApp());
   runApp(scope);
@@ -45,9 +48,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int selectedIndex = 0;
   final pages = [
     TextPostScreen(),
-    PageB(),
-    Test(),
     PostList(),
+    Test(),
+    PageB(),
   ];
 
   @override
