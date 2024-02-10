@@ -28,11 +28,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  device_preview: ^1.1.0
   http: ^1.1.0
   freezed_annotation:
   flutter_riverpod:
   flutter:
     sdk: flutter
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -44,7 +46,7 @@ dependencies:
   riverpod_annotation: ^2.1.2
   build_runner: ^2.4.6
   riverpod_generator: ^2.2.6
-  google_fonts: ^5.1.0
+  google_fonts: ^6.1.0
   hooks_riverpod: ^2.4.0
 
 

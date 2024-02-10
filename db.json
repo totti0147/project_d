@@ -1,55 +1,68 @@
 {
-  "allItems":
+  "allPosts": [
     {
-      "allPosts": [
-        {
-          "number": 1,
-          "title": "To prevent lifestyle diseases, I'm always trying to cut down on salt, sugar and sales.",
-          "jpn": "生活習慣病を予防するために、私は日頃から塩分や糖分、売り上げを抑えた生活を心掛けています。"
-        },
-        {
-          "number": 2,
-          "title": "It's available in various colors.",
-          "jpn": "様々なカラー展開があります。"
-        },
-        {
-          "number": 3,
-          "title": "I wish I had bought it earlier.",
-          "jpn": "もっと早く買えばよかった。"
-        },
-        {
-          "number": 4,
-          "title": "Even if something really great happens, let’s be careful not to get overexcited.",
-          "jpn": "めちゃくちゃ嬉しいことがあったとしても、調子に乗らないように気を付けましょう。"
-        },
-        {
-          "number": 5,
-          "title": "It's okay. I counted you out from the start anyway.",
-          "jpn": "大丈夫。最初から数に入れてないから。"
-        }
-      ],
-        "myPosts": [
-          {
-            "myNumber": 1,
-            "myTitle": "Today’s meal is fuss-free!",
-            "myJpn": "今日のご飯は手抜きします！"
-          },
-          {
-            "myNumber": 2,
-            "myTitle": "Just let me sleep for five more minutes in exchange for the rest of my lifespan.",
-            "myJpn": "残りの寿命と引き換えにあと5分だけ寝かせて。"
-          },
-          {
-            "myNumber": 3,
-            "myTitle": "If you join in November, you can use this special deal. This month's membership free will be calculated on a daily basis.",
-            "myJpn": "11月に入会するとこちらのキャンペーンをご利用頂けます。今月分は日割り計算の会費になります。"
-          },
-          {
-            "myNumber": 4,
-            "myTitle": "It sounds too good to be true. I have to check if there is a downside.",
-            "myJpn": "話がうますぎる。マイナスな面も確認する必要があるな。"
-          }
-        ],
-        "profile": { "name": "typicode" }
-      }
+      "number": 1,
+      "eng": "To prevent lifestyle diseases, I'm always trying to cut down on salt, sugar and sales.",
+      "jpn": "生活習慣病を予防するために、私は日頃から塩分や糖分、売り上げを抑えた生活を心掛けています。"
+    },
+    {
+      "number": 2,
+      "eng": "It's available in various colors.",
+      "jpn": "様々なカラー展開があります。"
+    },
+    {
+      "number": 3,
+      "eng": "I wish I had bought it earlier.",
+      "jpn": "もっと早く買えばよかった。"
+    },
+    {
+      "number": 4,
+      "eng": "Even if something really great happens, let’s be careful not to get overexcited.",
+      "jpn": "めちゃくちゃ嬉しいことがあったとしても、調子に乗らないように気を付けましょう。"
+    },
+    {
+      "number": 5,
+      "eng": "It's okay. I counted you out from the start anyway.",
+      "jpn": "大丈夫。最初から数に入れてないから。"
     }
+  ],
+  "myPosts": [
+    {
+      "number": 1,
+      "eng": "Today’s meal is fuss-free!",
+      "Jpn": "今日のご飯は手抜きします！"
+    },
+    {
+      "number": 2,
+      "eng": "Just let me sleep for five more minutes in exchange for the rest of my lifespan.",
+      "jpn": "残りの寿命と引き換えにあと5分だけ寝かせて。"
+    },
+    {
+      "number": 3,
+      "eng": "If you join in November, you can use this special deal. This month's membership free will be calculated on a daily basis.",
+      "jpn": "11月に入会するとこちらのキャンペーンをご利用頂けます。今月分は日割り計算の会費になります。"
+    },
+    {
+      "number": 4,
+      "eng": "It sounds too good to be true. I have to check if there is a downside.",
+      "jpn": "話がうますぎる。マイナスな面も確認する必要があるな。"
+    }
+  ],
+  "myPostsForBacklog": [
+    {
+      "number": 1,
+      "eng": "That's what it means."
+    },
+    {
+      "number": 2,
+      "eng": "it doesn't stay in my head."
+    }
+  ],
+  "myPostsForDone": [
+    {
+      "number": 1,
+      "eng": "The bus is coming in 20 minutes.",
+      "jpn": "20分後にバスくるよ。"
+    }
+  ]
+}

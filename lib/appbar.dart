@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:project_d/searchbox.dart';
-
 
 class CreateAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CreateAppBar({Key? key}) : super(key: key);
